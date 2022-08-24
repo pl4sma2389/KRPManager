@@ -23,7 +23,7 @@ This tool could also be expanded to provide a more friendly GUI for changing use
  - [ ] Allow the user to select a .zip or .pkz file containing a mod, and autodetect information about the type of mod (track, kart package (bodywork, chassis, engine, intake, seat, tyre), skin) if possible, and either detect the name of the mod, if possible, and/or allow the user to set the name of the mod
  - [ ] Allow the user to "update" existing mods by auto-detecting an older version of a mod and uninstalling it before installing the new version
 
-## Settings Management
+### Settings Management
  - [ ] Scan the user's profiles folder and contained files for settings, and provide a friendly GUI for the user to edit and save profile parameters
 
 ## Extended Functionality
