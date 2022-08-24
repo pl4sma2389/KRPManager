@@ -45,47 +45,39 @@ with dpg.theme() as global_theme:
 
 
 with dpg.window(tag="Main Window"):
-    with dpg.table(header_row=False, resizable=True):
-        dpg.add_table_column(label="column1")
-        with dpg.table_row():
-            with dpg.table_cell():
-                with dpg.tab_bar():
-                    with dpg.tab(label="Manage"):
-                        with dpg.tab_bar():
-                            with dpg.tab(label="Tracks"):
-                                window_heading = dpg.add_text("Track Management")
-                                dpg.add_text("Track Management will go here")
-                                dpg.bind_font(regular_font)
-                                dpg.bind_item_font(window_heading, heading_font)
+    with dpg.tab_bar():
+        with dpg.tab(label="Manage"):
+            with dpg.tab_bar():
+                with dpg.tab(label="Tracks"):
+                    window_heading = dpg.add_text("Track Management")
+                    dpg.add_text("Track Management will go here")
+                    dpg.bind_font(regular_font)
+                    dpg.bind_item_font(window_heading, heading_font)
 
-                            with dpg.tab(label="Karts"):
-                                window_heading = dpg.add_text("Karts Management")
-                                dpg.add_text("Karts Management will go here")
-                                dpg.bind_font(regular_font)
-                                dpg.bind_item_font(window_heading, heading_font)
+                with dpg.tab(label="Karts"):
+                    window_heading = dpg.add_text("Karts Management")
+                    dpg.add_text("Karts Management will go here")
+                    dpg.bind_font(regular_font)
+                    dpg.bind_item_font(window_heading, heading_font)
 
-                            with dpg.tab(label="Skins"):
-                                window_heading = dpg.add_text("Skins Management")
-                                dpg.add_text("Skins Management will go here")
-                                dpg.bind_font(regular_font)
-                                dpg.bind_item_font(window_heading, heading_font)
+                with dpg.tab(label="Skins"):
+                    window_heading = dpg.add_text("Skins Management")
+                    dpg.add_text("Skins Management will go here")
+                    dpg.bind_font(regular_font)
+                    dpg.bind_item_font(window_heading, heading_font)
 
-                    with dpg.tab(label="Settings"):
-                        dpg.add_text("Settings will go here")
+        with dpg.tab(label="Settings"):
+            dpg.add_text("Settings will go here")
 
-                    with dpg.tab(label="About"):
-                        window_title = dpg.add_text("KRPManager")
-                        dpg.add_text("Developed by pl4sma2389 at Slip Angle Modding and Development\n\nThe following software and libraries are used in this program:\n\nPython 3.10\n\tDear PyGui\n\twebcolors 1.3")
-                        dpg.bind_font(regular_font)
-                        dpg.bind_item_font(window_title, title_font)
+        with dpg.tab(label="About"):
+            window_title = dpg.add_text("KRPManager")
+            dpg.add_text("Developed by pl4sma2389 at Slip Angle Modding and Development\n\nThe following software and libraries are used in this program:\n\nPython 3.10\n\tDear PyGui 1.6.2\n\twebcolors 1.3")
+            dpg.bind_font(regular_font)
+            dpg.bind_item_font(window_title, title_font)
 
-        dpg.add_table_row(height=400, label="Bottom Row")
-        with dpg.table_row():
-            with dpg.table_cell():
-                with dpg.group(label="Always Available Buttons", horizontal=True):
-                    dpg.add_button(label="Launch KRP")
-                    dpg.add_button(label="Rescan Installed Mods")
-
+    with dpg.group(label="Always Available Buttons", horizontal=True, pos=(10, dpg.get_viewport_height()-75)):
+        dpg.add_button(label="Launch KRP")
+        dpg.add_button(label="Rescan Installed Mods")
 
     dpg.bind_font(regular_font)
 
