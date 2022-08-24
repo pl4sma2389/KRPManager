@@ -1,6 +1,4 @@
 # KRPManager
-
-## Introduction
 KRPManager is an AcTools Content Manager and/or GPL GEM-style mod installer, manager, and editor for Kart Racing Pro.
 
 ## Motivation - Standard
