@@ -1,5 +1,6 @@
 import dearpygui.dearpygui as dpg
 import webcolors as wc
+import webbrowser
 import configparser
 import os
 
@@ -18,9 +19,23 @@ UI_FONT_SIZE_HEADING = 30
 UI_FONT_SIZE_TITLE = 40
 
 
+# Functions
+def update_ui_positioning():
+    dpg.set_item_pos("bottom_buttons", (10, dpg.get_viewport_height()-75))
+
+
+def launch_krp():
+    webbrowser.open_new("steam://rungameid/415600")
+
+
 dpg.create_context()
 dpg.create_viewport(title='KRPManager', width=WINDOW_SIZE_X, height=WINDOW_SIZE_Y, min_width=700, min_height=500)
 dpg.set_viewport_vsync(True)
+
+
+# Internal settings, these are not to be adjustable by the user
+UI_INTERNAL_BOTTOM = dpg.get_viewport_height() - 75
+UI_INTERNAL_TEXT_ABOUT = "Developed by pl4sma2389 at Slip Angle Modding and Development\n\nThe following software, libraries, and assets are used in this program:\n\nPython 3.10\n\tDear PyGui 1.6.2\n\twebcolors 1.3\n\nRoboto Mono"
 
 
 # Register fonts and their sizes
@@ -71,12 +86,12 @@ with dpg.window(tag="Main Window"):
 
         with dpg.tab(label="About"):
             window_title = dpg.add_text("KRPManager")
-            dpg.add_text("Developed by pl4sma2389 at Slip Angle Modding and Development\n\nThe following software and libraries are used in this program:\n\nPython 3.10\n\tDear PyGui 1.6.2\n\twebcolors 1.3")
+            dpg.add_text(UI_INTERNAL_TEXT_ABOUT)
             dpg.bind_font(regular_font)
             dpg.bind_item_font(window_title, title_font)
 
-    with dpg.group(label="Always Available Buttons", horizontal=True, pos=(10, dpg.get_viewport_height()-75)):
-        dpg.add_button(label="Launch KRP")
+    with dpg.group(tag="bottom_buttons", horizontal=True, pos=(10, UI_INTERNAL_BOTTOM)):
+        dpg.add_button(label="Launch KRP", callback=launch_krp)
         dpg.add_button(label="Rescan Installed Mods")
 
     dpg.bind_font(regular_font)
@@ -89,7 +104,7 @@ dpg.setup_dearpygui()
 dpg.show_viewport()
 
 dpg.set_primary_window("Main Window", True)
-
+dpg.set_viewport_resize_callback(update_ui_positioning)
 dpg.start_dearpygui()
 
 dpg.destroy_context()
