@@ -31,11 +31,13 @@ def launch_krp():
 dpg.create_context()
 dpg.create_viewport(title='KRPManager', width=WINDOW_SIZE_X, height=WINDOW_SIZE_Y, min_width=700, min_height=500)
 dpg.set_viewport_vsync(True)
+dpg.set_viewport_large_icon(icon="Graphics\\KRPManager_logo_256x.ico")
+dpg.set_viewport_small_icon(icon="Graphics\\KRPManager_logo_32x.ico")
 
 
 # Internal settings, these are not to be adjustable by the user
 UI_INTERNAL_BOTTOM = dpg.get_viewport_height() - 75
-UI_INTERNAL_TEXT_ABOUT = "Developed by pl4sma2389 at Slip Angle Modding and Development\n\nThe following software, libraries, and assets are used in this program:\n\nPython 3.10\n\tDear PyGui 1.6.2\n\twebcolors 1.3\n\nRoboto Mono"
+UI_INTERNAL_TEXT_ABOUT = "Developed by pl4sma2389 at Slip Angle Modding and Development\n\nThe following software, libraries, and assets are used in this program:\n\nPython 3.10\n\tDear PyGui 1.6.2\n\twebcolors 1.3\n\nRoboto Mono\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTest"
 
 
 # Register fonts and their sizes
@@ -93,8 +95,6 @@ with dpg.window(tag="Main Window"):
     with dpg.group(tag="bottom_buttons", horizontal=True, pos=(10, UI_INTERNAL_BOTTOM)):
         dpg.add_button(label="Launch KRP", callback=launch_krp)
         dpg.add_button(label="Rescan Installed Mods")
-
-    dpg.bind_font(regular_font)
 
 
 dpg.bind_theme(global_theme)
